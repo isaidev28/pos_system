@@ -86,8 +86,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # motor MySQL
+        'NAME': 'pos_backend',             # nombre de la base que creaste en Laragon
+        'USER': 'root',                        # usuario por defecto en Laragon es 'root'
+        'PASSWORD': '',                        # Laragon por defecto no tiene contraseña en root
+        'HOST': '127.0.0.1',                  # localhost
+        'PORT': '3306',                       # puerto MySQL por defecto
     }
 }
 
@@ -132,3 +136,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'ventas.User'
